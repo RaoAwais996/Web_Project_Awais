@@ -24,7 +24,8 @@ function authenticateToken(req, res, next) {
 
 
 const signup = async (req , res) => {
-  const { username, password, name, phone, role } = req.body;
+  const { username, password, name, phone } = req.body;
+  console.log(req.body)
 
   try {
     // Check if the username already exists
@@ -43,10 +44,10 @@ const signup = async (req , res) => {
       username,
       password: hashedPassword,
       name,
-      phone,
-      role
+      phone
     });
     await user.save();
+    console.log(user)
 
     res.status(200).json({ success: true, message: 'User registered successfully', user });
   } catch (err) {
@@ -61,6 +62,7 @@ const login = async (req, res) => {
     try {
       // Check if the user exists
       const user = await User.findOne({ username });
+      console.log(user)
       if (!user) {
         return res.status(400).json({ success: false, message: 'Invalid credentials' });
       }

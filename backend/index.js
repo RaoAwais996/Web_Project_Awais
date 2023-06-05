@@ -10,15 +10,21 @@ const postRoutes = require("./Routes/posts");
 
 app.use(express.static('Frontend'));
 
-// Route for the homepage
-app.get('/', (req, res) => {
+const cors = require('cors');
 
-});
 
-// Route for the login page
-app.get('/login', (req, res) => {
+// Enable CORS for all routes
+app.use(cors());
 
-});
+// // Route for the homepage
+// app.get('/', (req, res) => {
+
+// });
+
+// // Route for the login page
+// app.get('/login', (req, res) => {
+
+// });
 
 app.use('/auth', userRoter)
 app.use('/user', Userrot)
