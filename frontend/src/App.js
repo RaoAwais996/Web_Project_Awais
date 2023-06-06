@@ -2,7 +2,6 @@ import React from 'react';
 import SignIn from './Components/SignIn';
 import { Routes, Route } from 'react-router-dom';
 import Signup from './Components/Signup';
-<<<<<<< HEAD
 import HomePage from './Views/homePage';
 import ProfilePage from './Views/profilePage';
 import { BrowserRouter, Navigate } from 'react-router-dom';
@@ -35,17 +34,5 @@ function App() {
     </div>
   ;
 }
-=======
-
-
-const App = () => {
-  return (
-    <Routes>
-      <Route path="/signin" element={<SignIn />} />
-      <Route path="/signup" element={<Signup />} />
-    </Routes>
-  );
-};
->>>>>>> 491c5f07349c06bd272d97699ba9dfe4c83e704a
 
 export default App;
