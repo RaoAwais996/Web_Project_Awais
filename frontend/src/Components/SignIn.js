@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import { Button, TextField, Typography, Link, Grid, Container } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import Signup from './Signup';
+import { useDispatch } from 'react-redux';
+import { setLogin } from '../state/index.js';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showSignup, setShowSignup] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSignIn = async (event) => {
     event.preventDefault();
@@ -26,14 +29,18 @@ const SignIn = () => {
         const data = await response.json();
         // Authentication successful, do something with the response data
         console.log('User authenticated:', data);
+        dispatch(setLogin({ username: username, token: data.token }));
+        console.log(username, data.token);
         navigate('/home');
       } else {
         // Authentication failed, handle the error response
         console.error('Authentication failed:', response.status);
+        alert('Authentication failed');
       }
     } catch (error) {
       // Network or server error occurred
       console.error('Error occurred:', error);
+      alert('Error occurred');
     }
   };
 
@@ -60,7 +67,7 @@ const SignIn = () => {
                   required
                   fullWidth
                   id="email"
-                  label="Email Address"
+                  label="Username"
                   name="email"
                   autoComplete="email"
                   autoFocus

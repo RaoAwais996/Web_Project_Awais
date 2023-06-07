@@ -16,6 +16,7 @@ function App() {
 
   const mode = useSelector((state) => state.mode);
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
+  const authenticated = useSelector((state) => state.token);
 
 
   return <div className="App">
@@ -26,8 +27,8 @@ function App() {
       <Route path="/" element={<SignIn />} />
       <Route path="/signin" element={<SignIn />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="/home" element={<HomePage />} />
-      <Route path="/profile/:userId" element={<ProfilePage />} />
+      <Route path="/home" element={authenticated ? <HomePage /> : <Navigate to="/"/>} />
+      <Route path="/profile/:userId" element={authenticated ? <ProfilePage /> : <Navigate to="/"/>} />
     </Routes>
     </ThemeProvider>
     </BrowserRouter>

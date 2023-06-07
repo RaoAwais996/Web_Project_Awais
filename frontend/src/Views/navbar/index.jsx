@@ -40,8 +40,9 @@ const Navbar = () => {
   const user = useSelector((state) => state.user);
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
 
+  
   const theme = useTheme();
-  const fullName = "Awais";
+  const fullName = user?.username;
 
   return (
     <NavbarContainer padding="1rem 6%" backgroundColor={theme.palette.background.alt}>
@@ -49,7 +50,7 @@ const Navbar = () => {
         <NavbarTitle
           fontWeight="bold"
           fontSize="clamp(1rem, 2rem, 2.25rem)"
-          color="primary.main"
+          color="black"
           onClick={() => navigate("/home")}
         >
           Nothing
