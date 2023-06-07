@@ -1,0 +1,72 @@
+.navbar {
+    padding: 1rem 6%;
+    background-color: var(--alt-color);
+  }
+  
+  .navbar__title {
+    font-weight: bold;
+    font-size: clamp(1rem, 2rem, 2.25rem);
+    color: var(--primary-color);
+    cursor: pointer;
+  }
+  
+  .navbar__title:hover {
+    color: var(--primary-light-color);
+  }
+  
+  .navbar__searchBar {
+    background-color: var(--neutral-light-color);
+    border-radius: 9px;
+    gap: 3rem;
+    padding: 0.1rem 1.5rem;
+  }
+  
+  .navbar__mobileMenuButton {
+    font-size: 25px;
+  }
+  
+  .navbar__dropdown {
+    background-color: var(--neutral-light-color);
+    width: 150px;
+    border-radius: 0.25rem;
+    padding: 0.25rem 1rem;
+  }
+  
+  .navbar__dropdown .MuiSvgIcon-root {
+    padding-right: 0.25rem;
+    width: 3rem;
+  }
+  
+  .navbar__dropdown .MuiSelect-select:focus {
+    background-color: var(--neutral-light-color);
+  }
+  
+  .navbar__mobileMenu {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    z-index: 10;
+    max-width: 500px;
+    min-width: 300px;
+    background-color: var(--background-color);
+  }
+  
+  .navbar__mobileMenu__closeButton {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+  }
+  
+  .navbar__mobileMenu__closeButton .MuiSvgIcon-root {
+    font-size: 25px;
+  }
+  
+  .navbar__mobileMenu__items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+  }
+  
