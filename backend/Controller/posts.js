@@ -74,4 +74,10 @@ const Post = require("../Modelss/Posts");
 };
 
 
-module.exports = { createPost, getFeedPosts, getUserPosts, likePost };
+
+module.exports = {
+  createPost: createPost,
+  getFeedPosts: getFeedPosts,
+  getUserPosts: getUserPosts,
+  likePost: likePost
+};

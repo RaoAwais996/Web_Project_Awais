@@ -1,91 +1,65 @@
-/* Signup.css */
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
 
-.Auth-form-container {
-    min-height: 100vh;
-    background-color: #f5f5f5;
-  }
-  
-  .Auth-form {
-    width: 400px;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .Auth-form-content {
-    text-align: center;
-  }
-  
-  .Auth-form-title {
-    margin-top: 0;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  .form-control {
-    width: 100%;
-    height: 40px;
-    padding: 8px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .d-grid {
-    display: grid;
-    gap: 10px;
-  }
-  
-  .btn-primary {
-    background-color: #007bff;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .btn-link {
-    color: #007bff;
-    font-size: 14px;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  /* Additional styles specific to Signup component */
-  label {
-    font-weight: bold;
-  }
-  
-  .mt-3 {
-    margin-top: 1rem;
-  }
-  
-  .mt-1 {
-    margin-top: 0.25rem;
-  }
-  
-  .btn-link {
-    font-size: 14px;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  .btn-link:hover {
-    text-decoration: underline;
-  }
-  
-  /* Media query for responsive design */
-  @media (max-width: 576px) {
-    .Auth-form {
-      width: 100%;
-      max-width: 400px;
-    }
-  }
-  
+.form-field {
+  margin-bottom: 1.5rem; /* Increase the spacing between fields */
+}
+
+.picture-container {
+  border: 1px solid #999999;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-bottom: 1.5rem; /* Increase the spacing between the picture container and other fields */
+}
+
+.picture-dropzone {
+  border: 2px dashed #007bff;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.submit-button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1.5rem; /* Add spacing above the button */
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+
+.btn-primary {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 20%; /* Set the button width to 100% */
+  height: 40px; /* Set the button height */
+  align-items: center;
+  margin: 0 auto; /* Center the button */
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}

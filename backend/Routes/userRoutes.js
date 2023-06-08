@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken');
 
 const userRoter = require("express").Router();
 
-userRoter.post("/signup" , signup)
+// userRoter.post("/signup" , signup)
 userRoter.post('/login' , login)
 
 

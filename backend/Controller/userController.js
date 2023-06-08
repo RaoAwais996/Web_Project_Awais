@@ -5,27 +5,10 @@ const User = require("../Modelss/User");
 const bcrypt = require("bcrypt");
 
 
-function authenticateToken(req, res, next) {
-  const authHeader = req.headers['authorization'];
-  if (typeof authHeader !== 'undefined') {
-    const bearerToken = authHeader.split(' ')[1];
-    req.token = bearerToken;
-    jwt.verify(req.token, process.env.SECRET_KEY, (err, authData) => {
-      if (err) {
-        res.sendStatus(403);
-      } else {
-        next();
-      }
-    });
-  } else {
-    res.sendStatus(401);
-  }
-}
 
 
-const signup = async (req , res) => {
-  const { username, password, name, phone } = req.body;
-  console.log(req.body)
+const signup = async (req, res) => {
+  const { username, password, name, phone, picturePath, location, nearestOccupation } = req.body;
 
   try {
     // Check if the username already exists
@@ -35,7 +18,6 @@ const signup = async (req , res) => {
     }
 
     // Hash the password
-    //get the salt from bcrypt and hash the password with the salt and the password provided by the user in the request body 
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
@@ -44,17 +26,23 @@ const signup = async (req , res) => {
       username,
       password: hashedPassword,
       name,
-      phone
+      phone,
+      picturePath,
+      location,
+      occupation: nearestOccupation,
+      viewedProfile: Math.floor(Math.random() * 10000),
+      impressions: Math.floor(Math.random() * 10000),
     });
+
     await user.save();
-    console.log(user)
 
     res.status(200).json({ success: true, message: 'User registered successfully', user });
   } catch (err) {
     console.error(err);
     res.status(500).json({ success: false, message: 'Server Error' });
   }
-}
+};
+
 
 const login = async (req, res) => {
     const { username, password } = req.body;
